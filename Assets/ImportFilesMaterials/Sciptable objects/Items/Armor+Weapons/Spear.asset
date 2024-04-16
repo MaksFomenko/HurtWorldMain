@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spear
   m_EditorClassIdentifier: 
   id: 19
-  itemSprite: {fileID: -7559582093524951795, guid: 38aa580623a25c74bb878227d751830b, type: 3}
+  itemSprite: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
   type: 4
   isStakable: 0
   boosts:
