@@ -51,12 +51,21 @@ public class Player_Moves : MonoBehaviour
             Input.GetAxis("Vertical") * _Vspeed_Corrend * Time.deltaTime);
     }
 
+    public bool onGround;
+    public Transform GroundCheck;
+    public float checkRadius = 0.5f;
+    public LayerMask Ground;
     private void JumpingPlayer()
     {
         if (Input.GetKey(KeyCode.Space))
         {
             _rigidbody.AddForce(Vector3.up * _force);
         }
+    }
+
+    void CheckingGround()
+    {
+       // onGround = Physics.OverlapCapsule(GroundCheck.position, Vector3, Ground);
     }
     
 }
