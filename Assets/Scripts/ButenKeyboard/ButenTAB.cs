@@ -10,7 +10,7 @@ public class ButenTAB : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             OpenInventory();
         }
