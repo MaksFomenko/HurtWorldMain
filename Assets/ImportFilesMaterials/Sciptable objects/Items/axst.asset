@@ -10,25 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1ffc58cbf7e8445b271b53a7e3573e, type: 3}
-  m_Name: TestItme
+  m_Name: axst
   m_EditorClassIdentifier: 
-  id: 28
-  itemSprite: {fileID: 8345168225771048080, guid: a233dc8c397a4ac43b7f7792b65af3ad, type: 3}
-  type: 6
+  id: 0
+  itemSprite: {fileID: 0}
+  type: 0
   isStakable: 0
-  boosts:
-  - boostType: 8
-    value: 5
-  - boostType: 7
-    value: 0.2
-  - boostType: 6
-    value: 0.1
-  - boostType: 9
-    value: 50
-  - boostType: 10
-    value: 0.001
+  boosts: []
   price: 0
-  description: 'okdfoskjdoidj Test Mega Imba
-
-    dspdpsldpsldpsldpsp Vie vie chu
-    chu ba ba balp'
+  description: 
