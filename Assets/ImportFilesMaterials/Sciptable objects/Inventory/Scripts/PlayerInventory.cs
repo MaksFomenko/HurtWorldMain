@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public Inventory inventory;
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter(Collider col)
     {
         var item = col.GetComponent<GroundItem>();
         if (item)

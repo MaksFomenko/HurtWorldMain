@@ -29,12 +29,12 @@ public class Player_Moves : MonoBehaviour
     {
         if (_onGo == true)
         {
-            TransformPositionControler();
+            TransformPositionControlers();
             JumpingPlayer();
         }
     }
 
-    private void TransformPositionControler()
+    private void TransformPositionControlers()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
