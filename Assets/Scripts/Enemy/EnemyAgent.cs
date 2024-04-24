@@ -21,6 +21,14 @@ public class EnemyAgent : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         setHP = GetComponent<EnemyScript>();
         
+        
+    }
+    
+    IEnumerator DelayedMethod(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        TargetUpdate();
+        agent.SetDestination(targets[i].position);
     }
 
     void TargetUpdate()
@@ -37,13 +45,13 @@ public class EnemyAgent : MonoBehaviour
             {
                 agent.SetDestination(player.transform.position);
             }
-            else
+            else 
             {
                 if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
                 {
-                    // Якщо агент прибув до кінця шляху, оновлюємо ціль
-                    TargetUpdate();
-                    agent.SetDestination(targets[i].position);
+                    //TargetUpdate();
+                    StartCoroutine(DelayedMethod(5f));
+                    //agent.SetDestination(targets[i].position);
                 }
             }
         }

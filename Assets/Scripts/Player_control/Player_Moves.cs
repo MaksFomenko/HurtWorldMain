@@ -22,6 +22,10 @@ public class Player_Moves : MonoBehaviour
 
     private void Start()
     {
+        // Приховуємо курсор
+        Cursor.visible = false;
+        // Блокуємо курсор, щоб він не виходив за межі вікна гри
+        Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
     }
 
