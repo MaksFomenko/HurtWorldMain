@@ -14,6 +14,8 @@ public class EnemyAgent : MonoBehaviour
     public GameObject borEnemy;
     public float distance;
     public EnemyScript setHP;
+    
+    private KillBoarQuest killBoarQuest;
 
     public float distanceThreshold = 4f;
     public void Start()
@@ -21,9 +23,13 @@ public class EnemyAgent : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         setHP = GetComponent<EnemyScript>();
         
-        
+        SetKillBoarQuestReference(FindObjectOfType<KillBoarQuest>());
     }
     
+    public void SetKillBoarQuestReference(KillBoarQuest quest)
+    {
+        killBoarQuest = quest;
+    }
     IEnumerator DelayedMethod(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -55,5 +61,19 @@ public class EnemyAgent : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (setHP.HP <= 0f)
+            {
+                Die();
+                
+            } 
+        }
+    }
+    void Die()
+    {
+        // Викликаємо метод BoarKilled() у класі квесту
+        killBoarQuest?.BoarKilled();
+        Destroy(gameObject);
     }
 }

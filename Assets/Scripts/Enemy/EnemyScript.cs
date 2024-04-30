@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
             animator.SetTrigger("death");
             GetComponent<Collider>().enabled = false;
             healthBar.gameObject.SetActive(false);
+            Destroy(healthBar);
         }
         else
         {

@@ -10,6 +10,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     
+    public delegate void DialogueEndAction();
+    public static event DialogueEndAction OnDialogueEnd;
     
     public Animator animator;
     
@@ -17,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+            //anotherClassInstance = new QuestManager();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -60,6 +63,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("isOpen",false);
-        
+        OnDialogueEnd?.Invoke();
     }
 }
