@@ -7,6 +7,7 @@ TagManager:
   - Points
   - Grounds
   - Enemy
+  - YourColliderTag
   layers:
   - Default
   - TransparentFX

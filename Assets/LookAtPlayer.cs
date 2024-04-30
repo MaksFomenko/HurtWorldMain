@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LookAtPlayer : MonoBehaviour
 {
-    public Transform camera;
-    void LateUpdate()
+    public Transform _camera;
+
+    private void LateUpdate()
     {
-        transform.LookAt(camera);
+        transform.LookAt(_camera);
     }
 }
