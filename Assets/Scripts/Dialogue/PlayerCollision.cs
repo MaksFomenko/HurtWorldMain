@@ -1,23 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
    
-    public GameObject butten;
+    public List<GameObject> objTrigger;
+    public List<GameObject> objButten;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("YourColliderTag"))
+        foreach (GameObject obj1 in objTrigger)
         {
-            butten.SetActive(true);
+            if (other.gameObject == obj1)
+            {
+                int index = objTrigger.IndexOf(obj1);
+                if (index < objButten.Count)
+                {
+                    objButten[index].SetActive(true);
+                }
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("YourColliderTag"))
+        foreach (GameObject obj1 in objTrigger)
         {
-            butten.SetActive(false);
+            if (other.gameObject == obj1)
+            {
+                int index = objTrigger.IndexOf(obj1);
+                if (index < objButten.Count)
+                {
+                    objButten[index].SetActive(false);
+                }
+            }
         }
     }
 }

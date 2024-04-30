@@ -17,11 +17,13 @@ public class Player_MouseMove : MonoBehaviour
 
     public Camera _PlayerCamera;
     public GameObject _PlayerGameObject;
+    public bool _onGo = true;
    
 
     private void Update()
     {
-        MouseMove();
+        
+        if (_onGo == true) MouseMove();
     }
 
     void MouseMove()
