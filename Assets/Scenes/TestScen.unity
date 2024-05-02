@@ -9817,7 +9817,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2144906133590500098, guid: be670984dd92a3d4fbfa3f1a306747cf, type: 3}
       propertyPath: HP
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2144906133590500098, guid: be670984dd92a3d4fbfa3f1a306747cf, type: 3}
       propertyPath: healthBar
@@ -9827,6 +9827,10 @@ PrefabInstance:
       propertyPath: agent
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2144906133590500103, guid: be670984dd92a3d4fbfa3f1a306747cf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1964491521}
     - target: {fileID: 2144906133590500103, guid: be670984dd92a3d4fbfa3f1a306747cf, type: 3}
       propertyPath: distance
       value: 2
