@@ -6,7 +6,7 @@ public class LookAtPlayer : MonoBehaviour
 {
     public Transform _camera;
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         transform.LookAt(_camera);
     }

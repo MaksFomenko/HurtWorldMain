@@ -6,7 +6,7 @@ public class KillBoarQuest : MonoBehaviour
     public int requiredBoars = 5;
     private int boarsKilled = -1;
     public TextMeshProUGUI questText;
-
+    
     void Start()
     {
         DialogueManager.OnDialogueEnd += StartQuest;
@@ -46,5 +46,6 @@ public class KillBoarQuest : MonoBehaviour
         questText.text ="Квест вбивства кабанів завершено!";
         Debug.Log("Квест вбивства кабанів завершено!");
         // Додатковий код, що виконується при завершенні квесту...
+        
     }
 }

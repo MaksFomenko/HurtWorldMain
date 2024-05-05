@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         healthBar.value = HP;
-        healthBar.transform.position = transform.position;
+        healthBar.transform.position = transform.position + new Vector3(0f,1.3f,0);
     }
 
     public void TakeDamage(int damageAmount)

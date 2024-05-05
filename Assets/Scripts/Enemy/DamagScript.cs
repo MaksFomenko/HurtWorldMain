@@ -9,7 +9,7 @@ public class DamagScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Points")
+        if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyScript>().TakeDamage(damedeAmount);
         }

@@ -8,6 +8,7 @@ TagManager:
   - Grounds
   - Enemy
   - YourColliderTag
+  - EEnemy
   layers:
   - Default
   - TransparentFX

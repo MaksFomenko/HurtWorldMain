@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public static event DialogueEndAction OnDialogueEnd;
     
     public Animator animator;
+    public Animator animator1;
     
     private Queue<string> sentences;
     void Start()
@@ -63,6 +64,8 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("isOpen",false);
+        animator1.SetBool("Open",true);
         OnDialogueEnd?.Invoke();
+        
     }
 }
