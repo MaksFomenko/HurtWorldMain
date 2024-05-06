@@ -14,9 +14,11 @@ public class EnemyAgent : MonoBehaviour
     public GameObject borEnemy;
     public float distance;
     public EnemyScript setHP;
+    public HP_Playser _HP_Playser;
 
     private KillBoarQuest killBoarQuest;
     
+    private int damagEnemy = 10;
     private float distanceBorPint = 1f;
     public float knockbackForce = 5f;
     public float distanceThreshold = 4f;
@@ -24,6 +26,7 @@ public class EnemyAgent : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         setHP = GetComponent<EnemyScript>();
+        _HP_Playser = FindObjectOfType<HP_Playser>();
 
         SetKillBoarQuestReference(FindObjectOfType<KillBoarQuest>());
     }
@@ -54,6 +57,7 @@ public class EnemyAgent : MonoBehaviour
         }
         
     }
+   
     
     void Update()
     {
@@ -71,12 +75,13 @@ public class EnemyAgent : MonoBehaviour
                     setHP.animator.SetBool("isAttack",true);
                     if (setHP.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f && !setHP.animator.IsInTransition(0))
                     {
-                        //добавити сюди визов функції нанесення урону гравцю
-                        
-                        
                         Vector3 knockbackDirection = (player.transform.position - transform.position ).normalized * Time.deltaTime;
                         player.GetComponent<Rigidbody>()
                             .AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+                        //добавити сюди визов функції нанесення урону гравцю
+                        _HP_Playser.healthBar.value = _HP_Playser.HPP;
+                        _HP_Playser.HPP -= damagEnemy;
+                        
                     }
                 }
                 else

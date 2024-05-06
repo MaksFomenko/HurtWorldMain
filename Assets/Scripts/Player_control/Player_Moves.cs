@@ -14,8 +14,10 @@ public class Player_Moves : MonoBehaviour
     public float _Hspeed_Corrend;
     public float _Vspeed_Corrend;
     public bool _onGo = true;
+    public bool _onGround = true;
 
     public CharacterController _PlayerObject;
+    public string groundTag = "Grounds";
 
     [SerializeField] private float _force;
     private Rigidbody _rigidbody;
@@ -27,6 +29,7 @@ public class Player_Moves : MonoBehaviour
         // Блокуємо курсор, щоб він не виходив за межі вікна гри
        // Cursor.lockState = CursorLockMode.Locked;
         _rigidbody = GetComponent<Rigidbody>();
+        _PlayerObject = GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -34,7 +37,11 @@ public class Player_Moves : MonoBehaviour
         if (_onGo == true)
         {
             TransformPositionControlers();
-            JumpingPlayer();
+            CheckingGround();
+            if (_onGround == true)
+            {
+                JumpingPlayer();
+            }
         }
     }
 
@@ -61,15 +68,29 @@ public class Player_Moves : MonoBehaviour
     public LayerMask Ground;*/
     private void JumpingPlayer()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && _onGround)
         {
-            _rigidbody.AddForce(Vector3.up * _force);
+            _rigidbody.AddForce(Vector3.up * _force * Time.deltaTime);
         }
     }
 
     void CheckingGround()
     {
-       // onGround = Physics.OverlapCapsule(GroundCheck.position, Vector3, Ground);
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 0.1f))
+        {
+            if (hit.collider.CompareTag(groundTag))
+            {
+                _onGround = true;
+            }
+            else
+            {
+                _onGround = false;
+            }
+        }
+        else
+        {
+            _onGround = false;
+        }
     }
     
 }
