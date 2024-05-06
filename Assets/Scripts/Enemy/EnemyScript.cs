@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour
     public int HP = 100;
     public Animator animator;
     public Slider healthBar;
+    
     void Update()
     {
         healthBar.value = HP;
@@ -20,14 +21,9 @@ public class EnemyScript : MonoBehaviour
 
         if (HP <= 0)
         {
-            animator.SetTrigger("death");
             GetComponent<Collider>().enabled = false;
             healthBar.gameObject.SetActive(false);
             Destroy(healthBar);
-        }
-        else
-        {
-            animator.SetTrigger("damage");
         }
     }
 }
