@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class EnemyAgent : MonoBehaviour
 {
@@ -81,6 +82,10 @@ public class EnemyAgent : MonoBehaviour
                         //добавити сюди визов функції нанесення урону гравцю
                         _HP_Playser.healthBar.value = _HP_Playser.HPP;
                         _HP_Playser.HPP -= damagEnemy;
+                        if (_HP_Playser.HPP <= 0)
+                        {
+                            ReloadScene();
+                        }
                         
                     }
                 }
@@ -125,5 +130,9 @@ public class EnemyAgent : MonoBehaviour
         // Викликаємо метод BoarKilled() у класі квесту
         killBoarQuest?.BoarKilled();
         Destroy(gameObject);
+    }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
